@@ -1,0 +1,25 @@
+# Nome do projeto/stack no Docker. Sem esta linha, o Compose usaria o nome
+# da pasta (que tem acentos e underscores). Aqui fixamos um nome limpo.
+name: monitor_credito
+
+# Banco de dados do projeto, isolado em um container proprio.
+# As credenciais vem do arquivo .env (que o Compose le automaticamente),
+# entao nenhum segredo fica escrito aqui — este arquivo pode ir para o Git.
+services:
+  db:
+    image: postgres:16
+    container_name: monitor_credito_db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      # host:container — 5433 no host para nao colidir com seus outros
+      # containers de Postgres, que provavelmente usam a 5432.
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - monitor_credito_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  monitor_credito_data:
