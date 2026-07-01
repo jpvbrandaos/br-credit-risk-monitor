@@ -2,7 +2,7 @@
 
 Este projeto reúne num painel só os principais indicadores de crédito que o Banco Central publica (inadimplência, endividamento das famílias, juros e spread bancário) e mostra o que eles dizem quando são lidos em conjunto: em que ponto do ciclo de crédito o Brasil está.
 
-**Painel ao vivo:** _[publique no Streamlit Community Cloud e cole o link aqui]_
+**Painel ao vivo:** https://br-credit-risk-monitor-ykfac8n6mmptje47ppwhty.streamlit.app
 
 > Status: primeira versão completa. Ingestão, banco PostgreSQL, análise em SQL, testes e painel funcionando.
 
