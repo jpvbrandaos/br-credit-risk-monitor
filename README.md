@@ -136,9 +136,10 @@ docker compose up -d              # sobe o PostgreSQL em container
 python run_pipeline.py            # ingestão, carga, camada analytics e exportação do CSV
 ```
 
-Para rodar os testes:
+Para rodar os notebooks e os testes, instale também as ferramentas de desenvolvimento:
 
 ```bash
+pip install -r requirements-dev.txt
 pytest
 ```
 
